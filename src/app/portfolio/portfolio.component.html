@@ -1,0 +1,31 @@
+<div class="portfolio  d-flex flex-column justify-content-center mt-5 position-relative">
+    <div class="margintop w-100">
+
+    </div>
+   <h3 class="text-center">PORTFOLIO COMPONENT</h3>
+  <app-line></app-line>
+   <div class="container">
+        
+        <div class="row">
+            @for (image of images; track $index) {
+                 <div class="col-md-4 p-4" >
+                   
+                  <div class="content rounded-4 position-relative" (click)="displayModal(image)">
+                     <div class="overlay rounded-4  h-100 position-absolute w-100 top-0  d-flex  align-items-center " >
+                      <!-- <h1 class="text-center text-white mx-auto" >+</h1> -->
+                      <i class="fa-solid fa-plus  mx-auto"></i>
+                  </div>
+                  <img [src]="image" class="w-100 rounded-4" alt="">
+                  </div>
+                     
+            </div>
+            }
+        </div>
+    </div>
+    <div class="modal vh-100 w-100 d-flex justify-content-center align-items-center position-fixed  top-0 start-0 " [class.d-none]="isModalOpened" (click)="closeModal()">
+
+        <img [src]="image" class="modal-image rounded-4" alt="">
+
+
+    </div>
+</div>
